@@ -1,0 +1,24 @@
+################################################################################
+# > Playbook used to configure Drone CI CD server
+#
+# @author: Florian DAMBRINE <@Lowess>
+################################################################################
+---
+
+- name: Configure Drone CI/CD
+  hosts: drone
+  become: yes
+
+  roles:
+    - role: Lowess.common
+      tags: ['common']
+
+    - role: Lowess.ngrok
+      tags: ['ngrok']
+
+    - role: Lowess.docker
+      tags: ['docker']
+
+    - role: Lowess.drone
+      tags: ['drone']
+
